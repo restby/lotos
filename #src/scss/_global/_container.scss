@@ -1,0 +1,20 @@
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @media (max-width: 768px) {
+    max-width: 737px;
+  }
+
+  @media (max-width: 375px) {
+    max-width: 365px;
+  }
+
+  // @media (max-width: $md3+px) {
+  //   max-width: none;
+  //   padding: 0 10px;
+  // }
+}

@@ -1,0 +1,154 @@
+.main-header {
+  width: 100%;
+  min-height: 90px;
+  padding-top: 71px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  // background-color: $bg-header-color;
+
+  // &::before {
+  //   position: absolute;
+  //   content: "";
+  //   width: 100%;
+  //   min-height: 90px;
+  //   top: 0;
+  //   left: 0;
+  //   background-color: transparent;
+  //   z-index: -1;
+  // }
+
+  // &.active::before {
+  //   @media (max-width: $md5+px) {
+  //     background-color: $white-color;
+  //     z-index: 4;
+  //   }
+  // }
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+  }
+
+  &__burger {
+    display: block;
+    width: 24px;
+    height: 16px;
+    padding: 0;
+    position: relative;
+    z-index: 4;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    & span {
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 2px;
+      top: 0;
+      background-color: transparent;
+      transition: all 0.3s ease 0s;
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 2px;
+        left: 0;
+        top: 0;
+        background-color: $black-color;
+        transition: all 0.3s ease 0s;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 2px;
+        top: 0;
+        right: 0;
+        background-color: $active-color;
+        transition: all 0.3s ease 0s;
+      }
+
+      &:nth-child(2) {
+        top: 7px;
+      }
+
+      &:last-child {
+        top: 14px;
+
+        &::after {
+          width: 14px;
+          left: 4px;
+        }
+      }
+    }
+
+    &.active span {
+      &:last-child {
+        transform: scale(0);
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &:first-child {
+        &::after {
+          top: 7px;
+          transform: rotate(-45deg);
+        }
+      }
+
+      &:nth-child(2) {
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      transition: all 0.3s ease 0s;
+
+      & span::before {
+        background-color: $gradient-bottom-color;
+        transition: all 0.3s ease 0s;
+      }
+
+      & span::after {
+        background-color: $gradient-bottom-color;
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    &:active {
+      & span::before {
+        background-color: rgba($gradient-top-color, 0.5);
+        transition: all 0.1s ease 0s;
+      }
+
+      & span::after {
+        background-color: rgba($gradient-bottom-color, 0.5);
+        transition: all 0.1s ease 0s;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    font-family: "Montserrat", "Arial", sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: $text-color;
+    text-decoration: none;
+  }
+}
