@@ -36,6 +36,7 @@
     for (let index = 0; index < daElementsArray.length; index++) {
       const el = daElementsArray[index];
       const daBreakpoint = el.breakpoint;
+      // const daType = el.type;
       const daType = el.type;
 
       daMatchMedia.push(window.matchMedia("(" + daType + "-width: " + daBreakpoint + "px)"));
