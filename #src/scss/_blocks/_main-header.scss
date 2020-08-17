@@ -1,37 +1,28 @@
 .main-header {
   width: 100%;
-  min-height: 90px;
-  padding-top: 71px;
+  min-height: 25px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   z-index: 3;
-  // background-color: $bg-header-color;
 
-  // &::before {
-  //   position: absolute;
-  //   content: "";
-  //   width: 100%;
-  //   min-height: 90px;
-  //   top: 0;
-  //   left: 0;
-  //   background-color: transparent;
-  //   z-index: -1;
-  // }
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    min-height: 55px;
+    top: 0;
+    left: 0;
+    background-color: $bg-color;
+    z-index: 3;
+  }
 
-  // &.active::before {
-  //   @media (max-width: $md5+px) {
-  //     background-color: $white-color;
-  //     z-index: 4;
-  //   }
-  // }
-
-  & .container {
+  & > .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     position: relative;
+    padding-top: 20px;
   }
 
   &__burger {
@@ -40,7 +31,7 @@
     height: 16px;
     padding: 0;
     position: relative;
-    z-index: 4;
+    z-index: 5;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -80,7 +71,7 @@
         top: 7px;
       }
 
-      &:last-child {
+      &:nth-child(3) {
         top: 14px;
 
         &::after {
@@ -91,7 +82,7 @@
     }
 
     &.active span {
-      &:last-child {
+      &:nth-child(3) {
         transform: scale(0);
       }
 
@@ -140,15 +131,65 @@
         transition: all 0.1s ease 0s;
       }
     }
+
+    & small {
+      display: none;
+
+      @media (min-width: 767.98px) {
+        display: block;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 400;
+        color: $text-color;
+        position: relative;
+        left: 39px;
+      }
+    }
+
+    &.active small {
+      @media (min-width: 767.98px) {
+        transform: scale(0);
+      }
+    }
   }
 
-  &__link {
-    display: block;
-    font-family: "Montserrat", "Arial", sans-serif;
-    font-size: 18px;
-    line-height: 1.2;
-    font-weight: 400;
-    color: $text-color;
-    text-decoration: none;
+  &__logo {
+    position: relative;
+    z-index: 4;
+
+    @media (min-width: 768px) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (min-width: 1920px) {
+      left: 0;
+      top: 50%;
+      transform: translate(15px, -50%);
+    }
+  }
+
+  // &__link {
+  //   img {
+  //     width: 40px;
+  //     height: 25px;
+  //   }
+  // }
+
+  &__phone {
+    display: none;
+
+    @media (min-width: 767.98px) {
+      display: block;
+      font-family: "Montserrat", "Arial", sans-serif;
+      font-size: 18px;
+      line-height: 1.2;
+      font-weight: 400;
+      color: $text-color;
+      text-decoration: none;
+      position: relative;
+      z-index: 4;
+    }
   }
 }
